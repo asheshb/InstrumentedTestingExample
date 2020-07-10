@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Instrumented Testing Example</string>
+
+    <string name="location">Your location coordinates are %d %d</string>
+</resources>
