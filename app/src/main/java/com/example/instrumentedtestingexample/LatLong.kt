@@ -1,5 +1,3 @@
 package com.example.instrumentedtestingexample
 
-data class LatLong(val Latitude: Double, val Longitude: Double){
-
-}
+data class LatLong(val lat: Double, val long: Double)

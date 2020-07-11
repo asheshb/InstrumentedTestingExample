@@ -1,5 +1,7 @@
 package com.example.instrumentedtestingexample
 
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -24,14 +26,13 @@ class LocationViewModelTest{
 
         val observer = Observer<String> {}
         try {
+            locationViewModel.userLocation.observeForever(observer)
 
-             locationViewModel.userLocation.observeForever(observer)
+            locationViewModel.setLocation(location)
 
-             locationViewModel.setLocation(location)
+            val value = locationViewModel.userLocation.value
 
-             val value = locationViewModel.userLocation.value
-
-           assertEquals(value, "${location.Latitude.toString()} ${location.Longitude.toString()}")
+            assertEquals(value, "${location.lat} ${location.long}")
 
         } finally {
              locationViewModel.userLocation.removeObserver(observer)
